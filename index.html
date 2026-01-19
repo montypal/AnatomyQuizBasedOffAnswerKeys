@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Master Anatomy & Physiology B Test</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; max-width: 900px; margin: 0 auto; padding: 30px; background-color: #f0f2f5; }
+        .header { text-align: center; background: #2c3e50; color: white; padding: 20px; border-radius: 10px; margin-bottom: 30px; }
+        .section-header { background: #34495e; color: #ecf0f1; padding: 10px 15px; border-radius: 5px; margin-top: 40px; text-transform: uppercase; letter-spacing: 1px; }
+        .intro-text { font-size: 0.9em; color: #666; font-style: italic; margin-bottom: 5px; display: block; border-left: 3px solid #3498db; padding-left: 10px; }
+        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 20px; border: 1px solid #ddd; }
+        .question { font-weight: bold; margin-bottom: 15px; font-size: 1.05em; color: #333; }
+        .options { display: grid; grid-template-columns: 1fr; gap: 8px; }
+        label { padding: 10px; border: 1px solid #eee; border-radius: 5px; cursor: pointer; transition: 0.2s; }
+        label:hover { background-color: #f8f9fa; border-color: #3498db; }
+        input[type="radio"] { margin-right: 10px; }
+        .feedback { margin-top: 15px; padding: 15px; display: none; border-radius: 5px; font-size: 0.95em; }
+        .correct { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .incorrect { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        #score-float { position: fixed; bottom: 20px; right: 20px; background: #2ecc71; color: white; padding: 15px; border-radius: 50px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); font-weight: bold; }
+        button.submit-btn { background: #3498db; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Anatomy & Physiology Master Exam</h1>
+    <p>Nervous, Endocrine, and Special Senses (Division B)</p>
+    <p>50 Questions | Sourced from Brown, MVSO, and ATX Invites</p>
+</div>
+
+<div id="score-float">Score: <span id="current-score">0</span> / 50</div>
+
+<div class="section-header">Section 1: The Nervous System (Brain & Pathology)</div>
+
+<div class="card">
+    <span class="intro-text">Testing your knowledge of anatomical landmarks in the brainstem.</span>
+    <div class="question">1. Which structure is located at the most inferior portion of the brainstem and contains the decussation of the pyramids?</div>
+    <div class="options">
+        <label><input type="radio" name="q1" value="a"> A) Pons</label>
+        <label><input type="radio" name="q1" value="b"> B) Midbrain</label>
+        <label><input type="radio" name="q1" value="c"> C) Medulla Oblongata</label>
+        <label><input type="radio" name="q1" value="d"> D) Thalamus</label>
+    </div>
+    <button class="submit-btn" onclick="check(1, 'c', 'The medulla oblongata is the lowest part of the brainstem and is where motor fibers cross over (decussate).')">Check Answer</button>
+    <div id="f1" class="feedback"></div>
+</div>
+
+<div class="card">
+    <span class="intro-text">Testing clinical differentiation between motor neuron types.</span>
+    <div class="question">2. A patient exhibits "hyperreflexia" (overactive reflexes). This is a clinical sign of damage to:</div>
+    <div class="options">
+        <label><input type="radio" name="q2" value="a"> A) Lower Motor Neurons</label>
+        <label><input type="radio" name="q2" value="b"> B) Upper Motor Neurons</label>
+        <label><input type="radio" name="q2" value="c"> C) Sensory Neurons</label>
+        <label><input type="radio" name="q2" value="d"> D) Interneurons</label>
+    </div>
+    <button class="submit-btn" onclick="check(2, 'b', 'Upper motor neuron (UMN) damage typically causes hyperreflexia and spasticity, while Lower motor neuron (LMN) damage causes flaccidity and fasciculations.')">Check Answer</button>
+    <div id="f2" class="feedback"></div>
+</div>
+
+<div class="card">
+    <span class="intro-text">Testing understanding of ALS pathology.</span>
+    <div class="question">3. What is a defining characteristic of Amyotrophic Lateral Sclerosis (ALS) that distinguishes it from other neurodegenerative diseases?</div>
+    <div class="options">
+        <label><input type="radio" name="q3" value="a"> A) Loss of sensation in fingers</label>
+        <label><input type="radio" name="q3" value="b"> B) Progressive loss of hearing</label>
+        <label><input type="radio" name="q3" value="c"> C) Sensation remains intact while motor function is lost</label>
+        <label><input type="radio" name="q3" value="d"> D) It only affects the autonomic nervous system</label>
+    </div>
+    <button class="submit-btn" onclick="check(3, 'c', 'ALS affects both upper and lower motor neurons, but critically, sensation and cognitive function usually remain intact.')">Check Answer</button>
+    <div id="f3" class="feedback"></div>
+</div>
+
+<div class="card">
+    <span class="intro-text">Testing brain physiology and the corpus callosum.</span>
+    <div class="question">4. True or False: The corpus callosum is primarily composed of white matter.</div>
+    <div class="options">
+        <label><input type="radio" name="q4" value="t"> True</label>
+        <label><input type="radio" name="q4" value="f"> False</label>
+    </div>
+    <button class="submit-btn" onclick="check(4, 't', 'The corpus callosum consists of myelinated axons (white matter) that connect the two cerebral hemispheres.')">Check Answer</button>
+    <div id="f4" class="feedback"></div>
+</div>
+
+<div class="card">
+    <span class="intro-text">Testing knowledge of neuro-pathology onset.</span>
+    <div class="question">5. Cerebral Palsy is defined as a ________ condition, meaning the brain injury does not get worse over time.</div>
+    <div class="options">
+        <label><input type="radio" name="q5" value="a"> A) Progressive</label>
+        <label><input type="radio" name="q5" value="b"> B) Degenerative</label>
+        <label><input type="radio" name="q5" value="c"> C) Static</label>
+        <label><input type="radio" name="q5" value="d"> D) Transient</label>
+    </div>
+    <button class="submit-btn" onclick="check(5, 'c', 'Cerebral Palsy is a static (non-progressive) encephalopathy resulting from injury to the developing brain.')">Check Answer</button>
+    <div id="f5" class="feedback"></div>
+</div>
+
+<div class="card">
+    <span class="intro-text">Testing specialized brain structures.</span>
+    <div class="question">6. Which structure in the diencephalon acts as the "relay station" for almost all sensory information?</div>
+    <div class="options">
+        <label><input type="radio" name="q6" value="a"> A) Hypothalamus</label>
+        <label><input type="radio" name="q6" value="b"> B) Thalamus</label>
+        <label><input type="radio" name="q6" value="c"> C) Epithalamus</label>
+        <label><input type="radio" name="q6" value="d"> D) Pineal Gland</label>
+    </div>
+    <button class="submit-btn" onclick="check(6, 'b', 'The thalamus filters and relays sensory information to the appropriate areas of the cerebral cortex.')">Check Answer</button>
+    <div id="f6" class="feedback"></div>
+</div>
+
+<div class="card">
+    <span class="intro-text">Testing resting membrane potential equations.</span>
+    <div class="question">7. Which equation calculates the equilibrium potential for a single ion?</div>
+    <div class="options">
+        <label><input type="radio" name="q7" value="a"> A) Goldman Equation</label>
+        <label><input type="radio" name="q7" value="b"> B) Nernst Equation</label>
+        <label><input type="radio" name="q7" value="c"> C) Starling Equation</label>
+    </div>
+    <button class="submit-btn" onclick="check(7, 'b', 'The Nernst equation is for a single ion; the Goldman equation considers multiple ions and their permeabilities.')">Check Answer</button>
+    <div id="f7" class="feedback"></div>
+</div>
+
+<div class="card">
+    <span class="intro-text">Testing the anatomy of the brain stem.</span>
+    <div class="question">8. The "mesencephalon" is another name for which structure?</div>
+    <div class="options">
+        <label><input type="radio" name="q8" value="a"> A) Midbrain</label>
+        <label><input type="radio" name="q8" value="b"> B) Pons</label>
+        <label><input type="radio" name="q8" value="c"> C) Cerebellum</label>
+    </div>
+    <button class="submit-btn" onclick="check(8, 'a', 'Mesencephalon is the embryological and anatomical term for the midbrain.')">Check Answer</button>
+    <div id="f8" class="feedback"></div>
+</div>
+
+<div class="card">
+    <span class="intro-text">Testing stroke classification.</span>
+    <div class="question">9. Most strokes (approx. 87%) are caused by a blockage of an artery. What is the name for this type of stroke?</div>
+    <div class="options">
+        <label><input type="radio" name="q9" value="a"> A) Hemorrhagic</label>
+        <label><input type="radio" name="q9" value="b"> B) Ischemic</label>
+        <label><input type="radio" name="q9" value="c"> C) TIA</label>
+    </div>
+    <button class="submit-btn" onclick="check(9, 'b', 'Ischemic strokes are caused by blood clots or blockages, whereas hemorrhagic strokes involve bleeding.')">Check Answer</button>
+    <div id="f9" class="feedback"></div>
+</div>
+
+<div class="card">
+    <span class="intro-text">Testing the covering of the brain.</span>
+    <div class="question">10. Name the tough, outermost layer of the meninges.</div>
+    <div class="options">
+        <label><input type="radio" name="q10" value="a"> A) Pia Mater</label>
+        <label><input type="radio" name="q10" value="b"> B) Arachnoid Mater</label>
+        <label><input type="radio" name="q10" value="c"> C) Dura Mater</label>
+    </div>
+    <button class="submit-btn" onclick="check(10, 'c', 'The Dura Mater is the "tough mother," the thickest and most external layer.')">Check Answer</button>
+    <div id="f10" class="feedback"></div>
+</div>
+
+<div class="section-header">Section 2: Special Senses (Vision, Hearing, Taste, Smell)</div>
+
+<div class="card">
+    <span class="intro-text">Testing vision anatomy.</span>
+    <div class="question">11. Which structure in the eye is responsible for the majority of light refraction?</div>
+    <div class="options">
+        <label><input type="radio" name="q11" value="a"> A) Retina</label>
+        <label><input type="radio" name="q11" value="b"> B) Cornea</label>
+        <label><input type="radio" name="q11" value="c"> C) Lens</label>
+        <label><input type="radio" name="q11" value="d"> D) Iris</label>
+    </div>
+    <button class="submit-btn" onclick="check(11, 'c', 'While the cornea does most of the static refraction, the lens is the primary structure discussed in the keys regarding focused refraction/accommodation.')">Check Answer</button>
+    <div id="f11" class="feedback"></div>
+</div>
+
+<div class="card">
+    <span class="intro-text">Testing photoreceptor function.</span>
+    <div class="question">12. Which photoreceptors are highly sensitive to light and are used for "scotopic" (night) vision?</div>
+    <div class="options">
+        <label><input type="radio" name="q12" value="a"> A) Cones</label>
+        <label><input type="radio" name="q12" value="b"> B) Rods</label>
+        <label><input type="radio" name="q12" value="c"> C) Ganglion cells</label>
+    </div>
+    <button class="submit-btn" onclick="check(12, 'b', 'Rods are for low-light vision; Cones are for color and high-acuity daylight vision.')">Check Answer</button>
+    <div id="f12" class="feedback"></div>
+</div>
+
+<div class="card">
+    <span class="intro-text">Testing visual pathway lesions.</span>
+    <div class="question">13. A lesion specifically at the "Optic Chiasm" would result in which visual field defect?</div>
+    <div class="options">
+        <label><input type="radio" name="q13" value="a"> A) Total blindness in one eye</label>
+        <label><input type="radio" name="q13" value="b"> B) Bitemporal Hemianopia (Loss of peripheral vision)</label>
+        <label><input type="radio" name="q13" value="c"> C) Homonymous Hemianopia</label>
+    </div>
+    <button class="submit-btn" onclick="check(13, 'b', 'Damage to the chiasm interrupts the crossing fibers from the nasal retinas, causing loss of the outer (temporal) visual fields.')">Check Answer</button>
+    <div id="f13" class="feedback"></div>
+</div>
+
+<div class="card">
+    <span class="intro-text">Testing ear anatomy and function.</span>
+    <div class="question">14. What is the specific function of the Ossicles (Malleus, Incus, Stapes)?</div>
+    <div class="options">
+        <label><input type="radio" name="q14" value="a"> A) Balance and equilibrium</label>
+        <label><input type="radio" name="q14" value="b"> B) Impedance matching between air and fluid</label>
+        <label><input type="radio" name="q14" value="c"> C) Protecting the brain from loud noise</label>
+    </div>
+    <button class="submit-btn" onclick="check(14, 'b', 'They amplify sound pressure to ensure it can move the denser fluid of the cochlea.')">Check Answer</button>
+    <div id="f14" class="feedback"></div>
+</div>
+
+<div class="card">
+    <span class="intro-text">Testing sound frequency coding.</span>
+    <div class="question">15. High-frequency sounds displace the basilar membrane primarily at:</div>
+    <div class="options">
+        <label><input type="radio" name="q15" value="a"> A) The Apex (wide, floppy end)</label>
+        <label><input type="radio" name="q15" value="b"> B) The Base (narrow, stiff end)</label>
+        <label><input type="radio" name="q15" value="c"> C) The Middle only</label>
+    </div>
+    <button class="submit-btn" onclick="check(15, 'b', 'This is called "Place Coding." The base is stiff and responds to high frequencies; the apex responds to low frequencies.')">Check Answer</button>
+    <div id="f15" class="feedback"></div>
+</div>
+
+<div class="card">
+    <span class="intro-text">Testing olfactory (smell) science.</span>
+    <div class="question">16. Olfactory receptor cells use which of the following ions to trigger depolarization?</div>
+    <div class="options">
+        <label><input type="radio" name="q16" value="a"> A) Sodium only</label>
+        <label><input type="radio" name="q16" value="b"> B) Calcium and Chloride</label>
+        <label><input type="radio" name="q16" value="c"> C) Potassium only</label>
+    </div>
+    <button class="submit-btn" onclick="check(16, 'b', 'In smell, Ca2+ influx opens Cl- channels, and because Cl- concentration is high inside these cells, Cl- leaves, causing depolarization.')">Check Answer</button>
+    <div id="f16" class="feedback"></div>
+</div>
+
+<div class="card">
+    <span class="intro-text">Testing terminology for sensory loss.</span>
+    <div class="question">17. What is the term for a distorted or "bad" sense of smell?</div>
+    <div class="options">
+        <label><input type="radio" name="q17" value="a"> A) Anosmia</label>
+        <label><input type="radio" name="q17" value="b"> B) Dysosmia</label>
+        <label><input type="radio" name="q17" value="c"> C) Ageusia</label>
+    </div>
+    <button class="submit-btn" onclick="check(17, 'b', 'Dysosmia is distortion; Anosmia is total loss.')">Check Answer</button>
+    <div id="f17" class="feedback"></div>
+</div>
+
+<div class="card">
+    <span class="intro-text">Testing taste anatomy.</span>
+    <div class="question">18. The bumps on your tongue that contain taste buds are called:</div>
+    <div class="options">
+        <label><input type="radio" name="q18" value="a"> A) Follicles</label>
+        <label><input type="radio" name="q18" value="b"> B) Papillae</label>
+        <label><input type="radio" name="q18" value="c"> C) Villi</label>
+    </div>
+    <button class="submit-btn" onclick="check(18, 'b', 'Taste buds are located within different types of papillae (fungiform, circumvallate, etc.).')">Check Answer</button>
+    <div id="f18" class="feedback"></div>
+</div>
+
+<div class="card">
+    <span class="intro-text">Testing the protection reflex of the ear.</span>
+    <div class="question">19. The "Attenuation Reflex" involves the contraction of which two muscles?</div>
+    <div class="options">
+        <label><input type="radio" name="q19" value="a"> A) Tensor tympani and Stapedius</label>
+        <label><input type="radio" name="q19" value="b"> B) Masseter and Temporalis</label>
+        <label><input type="radio" name="q19" value="c"> C) Biceps and Triceps</label>
+    </div>
+    <button class="submit-btn" onclick="check(19, 'a', 'These muscles contract to dampen the movement of the ossicles during loud sounds.')">Check Answer</button>
+    <div id="f19" class="feedback"></div>
+</div>
+
+<div class="card">
+    <span class="intro-text">Testing visual processing centers.</span>
+    <div class="question">20. The primary visual cortex is also known as:</div>
+    <div class="options">
+        <label><input type="radio" name="q20" value="a"> A) V2</label>
+        <label><input type="radio" name="q20" value="b"> B) Striate Cortex (V1)</label>
+        <label><input type="radio" name="q20" value="c"> C) Temporal Lobe</label>
+    </div>
+    <button class="submit-btn" onclick="check(20, 'b', 'Primary visual cortex is V1 or the Striate Cortex.')">Check Answer</button>
+    <div id="f20" class="feedback"></div>
+</div>
+
+<div class="section-header">Section 3: Endocrine System (Hormones & Glands)</div>
+
+<div class="card">
+    <span class="intro-text">Testing hormone chemistry.</span>
+    <div class="question">21. Peptide hormones are water-soluble, which means they:</div>
+    <div class="options">
+        <label><input type="radio" name="q21" value="a"> A) Can diffuse through the cell membrane</label>
+        <label><input type="radio" name="q21" value="b"> B) Require a second messenger system</label>
+        <label><input type="radio" name="q21" value="c"> C) Bind to receptors inside the nucleus</label>
+    </div>
+    <button class="submit-btn" onclick="check(21, 'b', 'Water-soluble hormones cannot cross the lipid membrane and must bind to surface receptors to trigger second messengers.')">Check Answer</button>
+    <div id="f21" class="feedback"></div>
+</div>
+
+<div class="card">
+    <span class="intro-text">Testing the "master" controller.</span>
+    <div class="question">22. Which brain structure links the nervous system to the endocrine system via the pituitary gland?</div>
+    <div class="options">
+        <label><input type="radio" name="q22" value="a"> A) Thalamus</label>
+        <label><input type="radio" name="q22" value="b"> B) Hypothalamus</label>
+        <label><input type="radio" name="q22" value="c"> C) Medulla</label>
+    </div>
+    <button class="submit-btn" onclick="check(22, 'b', 'The hypothalamus controls the pituitary gland.')">Check Answer</button>
+    <div id="f22" class="feedback"></div>
+</div>
+
+<div class="card">
+    <span class="intro-text">Testing pathology presentation.</span>
+    <div class="question">23. A patient with Addison's disease may have bronzing of the skin due to an excess of:</div>
+    <div class="options">
+        <label><input type="radio" name="q23" value="a"> A) Cortisol</label>
+        <label><input type="radio" name="q23" value="b"> B) ACTH and MSH</label>
+        <label><input type="radio" name="q23" value="c"> C) Insulin</label>
+    </div>
+    <button class="submit-btn" onclick="check(23, 'b', 'Low cortisol leads to high ACTH. ACTH stimulates Melanocyte-Stimulating Hormone (MSH), causing bronzing.')">Check Answer</button>
+    <div id="f23" class="feedback"></div>
+</div>
+
+<div class="card">
+    <span class="intro-text">Testing pancreatic function.</span>
+    <div class="question">24. Alpha cells in the pancreas secrete ________ which ________ blood sugar levels.</div>
+    <div class="options">
+        <label><input type="radio" name="q24" value="a"> A) Insulin; lowers</label>
+        <label><input type="radio" name="q24" value="b"> B) Glucagon; raises</label>
+        <label><input type="radio" name="q24" value="c"> C) Glucagon; lowers</label>
+    </div>
+    <button class="submit-btn" onclick="check(24, 'b', 'Alpha cells = Glucagon (increases sugar); Beta cells = Insulin (decreases sugar).')">Check Answer</button>
+    <div id="f24" class="feedback"></div>
+</div>
+
+<div class="card">
+    <span class="intro-text">Testing fluid balance.</span>
+    <div class="question">25. Which hormone is also known as "Vasopressin" and increases water reabsorption in the kidneys?</div>
+    <div class="options">
+        <label><input type="radio" name="q25" value="a"> A) Aldosterone</label>
+        <label><input type="radio" name="q25" value="b"> B) ADH (Antidiuretic Hormone)</label>
+        <label><input type="radio" name="q25" value="c"> C) Oxytocin</label>
+    </div>
+    <button class="submit-btn" onclick="check(25, 'b', 'ADH/Vasopressin conserves water by making the collecting ducts of the kidney permeable.')">Check Answer</button>
+    <div id="f25" class="feedback"></div>
+</div>
+
+<div class="card">
+    <span class="intro-text">Testing specialized endocrine glands.</span>
+    <div class="question">26. Which gland is responsible for secreting Melatonin to regulate sleep cycles?</div>
+    <div class="options">
+        <label><input type="radio" name="q26" value="a"> A) Thyroid</label>
+        <label><input type="radio" name="q26" value="b"> B) Adrenal</label>
+        <label><input type="radio" name="q26" value="c"> C) Pineal</label>
+    </div>
+    <button class="submit-btn" onclick="check(26, 'c', 'The pineal gland secretes melatonin in response to darkness.')">Check Answer</button>
+    <div id="f26" class="feedback"></div>
+</div>
+
+<div class="card">
+    <span class="intro-text">Testing thyroid pathology.</span>
+    <div class="question">27. Hashimoto's Disease is an autoimmune condition that typically causes:</div>
+    <div class="options">
+        <label><input type="radio" name="q27" value="a"> A) Hyperthyroidism</label>
+        <label><input type="radio" name="q27" value="b"> B) Hypothyroidism</label>
+        <label><input type="radio" name="q27" value="c"> C) Diabetes</label>
+    </div>
+    <button class="submit-btn" onclick="check(27, 'b', 'Hashimoto\'s is the most common cause of hypothyroidism (underactive thyroid) in the US.')">Check Answer</button>
+    <div id="f27" class="feedback"></div>
+</div>
+
+<div class="card">
+    <span class="intro-text">Testing hormone transport.</span>
+    <div class="question">28. The blood vessel system connecting the hypothalamus to the anterior pituitary is the:</div>
+    <div class="options">
+        <label><input type="radio" name="q28" value="a"> A) Hepatic portal system</label>
+        <label><input type="radio" name="q28" value="b"> B) Hypophyseal portal system</label>
+        <label><input type="radio" name="q28" value="c"> C) Renal portal system</label>
+    </div>
+    <button class="submit-btn" onclick="check(28, 'b', 'The hypophyseal portal system allows hormones from the hypothalamus to reach the anterior pituitary quickly.')">Check Answer</button>
+    <div id="f28" class="feedback"></div>
+</div>
+
+<div class="card">
+    <span class="intro-text">Testing adrenal gland anatomy.</span>
+    <div class="question">29. The Adrenal ________ secretes epinephrine (adrenaline) and norepinephrine.</div>
+    <div class="options">
+        <label><input type="radio" name="q29" value="a"> A) Cortex</label>
+        <label><input type="radio" name="q29" value="b"> B) Medulla</label>
+        <label><input type="radio" name="q29" value="c"> C) Capsule</label>
+    </div>
+    <button class="submit-btn" onclick="check(29, 'b', 'The adrenal medulla is responsible for the "fight or flight" catecholamines.')">Check Answer</button>
+    <div id="f29" class="feedback"></div>
+</div>
+
+<div class="card">
+    <span class="intro-text">Testing hormone classification.</span>
+    <div class="question">30. Which of these is a TROPIC hormone (a hormone that triggers another gland)?</div>
+    <div class="options">
+        <label><input type="radio" name="q30" value="a"> A) Insulin</label>
+        <label><input type="radio" name="q30" value="b"> B) Luteinizing Hormone (LH)</label>
+        <label><input type="radio" name="q30" value="c"> C) Oxytocin</label>
+    </div>
+    <button class="submit-btn" onclick="check(30, 'b', 'LH is a tropic hormone because it targets the gonads to release further hormones.')">Check Answer</button>
+    <div id="f30" class="feedback"></div>
+</div>
+
+<div class="section-header">Final Push: Mixed Challenge</div>
+
+<div class="card">
+    <span class="intro-text">Nervous: Reflexes</span>
+    <div class="question">31. True or False: Reflexes are generally slower than voluntary movements.</div>
+    <div class="options">
+        <label><input type="radio" name="q31" value="t"> True</label>
+        <label><input type="radio" name="q31" value="f"> False</label>
+    </div>
+    <button class="submit-btn" onclick="check(31, 'f', 'Reflexes are much faster because they often skip processing in the brain (monosynaptic reflex arc).')">Check Answer</button>
+    <div id="f31" class="feedback"></div>
+</div>
+
+<div class="card">
+    <span class="intro-text">Senses: Audition</span>
+    <div class="question">32. Where are the "hair cells" (actual sensory receptors for hearing) located?</div>
+    <div class="options">
+        <label><input type="radio" name="q32" value="a"> A) Semicircular canals</label>
+        <label><input type="radio" name="q32" value="b"> B) Organ of Corti</label>
+        <label><input type="radio" name="q32" value="c"> C) Tympanic Membrane</label>
+    </div>
+    <button class="submit-btn" onclick="check(32, 'b', 'The Organ of Corti, sitting on the basilar membrane, contains the hair cells.')">Check Answer</button>
+    <div id="f32" class="feedback"></div>
+</div>
+
+<div class="card">
+    <span class="intro-text">Endocrine: Calcium Control</span>
+    <div class="question">33. Which hormone is released when blood calcium levels are too LOW?</div>
+    <div class="options">
+        <label><input type="radio" name="q33" value="a"> A) Calcitonin</label>
+        <label><input type="radio" name="q33" value="b"> B) Parathyroid Hormone (PTH)</label>
+        <label><input type="radio" name="q33" value="c"> C) Thyroxine</label>
+    </div>
+    <button class="submit-btn" onclick="check(33, 'b', 'PTH raises blood calcium; Calcitonin "tones it down."')">Check Answer</button>
+    <div id="f33" class="feedback"></div>
+</div>
+
+<div class="card">
+    <span class="intro-text">Senses: Gustation</span>
+    <div class="question">34. Which taste is triggered by the presence of glutamate?</div>
+    <div class="options">
+        <label><input type="radio" name="q34" value="a"> A) Sour</label>
+        <label><input type="radio" name="q34" value="b"> B) Bitter</label>
+        <label><input type="radio" name="q34" value="c"> C) Umami</label>
+    </div>
+    <button class="submit-btn" onclick="check(34, 'c', 'Umami is the "savory" taste triggered by amino acids like glutamate.')">Check Answer</button>
+    <div id="f34" class="feedback"></div>
+</div>
+
+<div class="card">
+    <span class="intro-text">Endocrine: Steroids</span>
+    <div class="question">35. Steroid hormones are derived from which molecule?</div>
+    <div class="options">
+        <label><input type="radio" name="q35" value="a"> A) Glucose</label>
+        <label><input type="radio" name="q35" value="b"> B) Cholesterol</label>
+        <label><input type="radio" name="q35" value="c"> C) ATP</label>
+    </div>
+    <button class="submit-btn" onclick="check(35, 'b', 'All steroid hormones (cortisol, estrogen, etc.) are synthesized from cholesterol.')">Check Answer</button>
+    <div id="f35" class="feedback"></div>
+</div>
+
+<div class="card">
+    <span class="intro-text">Nervous: Synapses</span>
+    <div class="question">36. What ion influx into the axon terminal triggers the release of neurotransmitters?</div>
+    <div class="options">
+        <label><input type="radio" name="q36" value="a"> A) Potassium</label>
+        <label><input type="radio" name="q36" value="b"> B) Calcium</label>
+        <label><input type="radio" name="q36" value="c"> C) Iron</label>
+    </div>
+    <button class="submit-btn" onclick="check(36, 'b', 'Ca2+ influx is the signal for vesicles to fuse with the membrane and release their contents.')">Check Answer</button>
+    <div id="f36" class="feedback"></div>
+</div>
+
+<div class="card">
+    <span class="intro-text">Senses: Vision Colors</span>
+    <div class="question">37. "L-type" cones are most sensitive to which color wavelength?</div>
+    <div class="options">
+        <label><input type="radio" name="q37" value="a"> A) Blue</label>
+        <label><input type="radio" name="q37" value="b"> B) Green</label>
+        <label><input type="radio" name="q37" value="c"> C) Red</label>
+    </div>
+    <button class="submit-btn" onclick="check(37, 'c', 'L stands for Long wavelength, which corresponds to Red.')">Check Answer</button>
+    <div id="f37" class="feedback"></div>
+</div>
+
+<div class="card">
+    <span class="intro-text">Endocrine: Pathology</span>
+    <div class="question">38. Cushing's Syndrome is caused by chronic exposure to excessive levels of:</div>
+    <div class="options">
+        <label><input type="radio" name="q38" value="a"> A) Thyroxine</label>
+        <label><input type="radio" name="q38" value="b"> B) Cortisol</label>
+        <label><input type="radio" name="q38" value="c"> C) Growth Hormone</label>
+    </div>
+    <button class="submit-btn" onclick="check(38, 'b', 'Cushing\'s is hypercortisolism, often leading to a "moon face" and "buffalo hump."')">Check Answer</button>
+    <div id="f38" class="feedback"></div>
+</div>
+
+<div class="card">
+    <span class="intro-text">Nervous: Cerebral Lobe</span>
+    <div class="question">39. Which lobe of the brain is responsible for processing auditory information?</div>
+    <div class="options">
+        <label><input type="radio" name="q39" value="a"> A) Frontal</label>
+        <label><input type="radio" name="q39" value="b"> B) Occipital</label>
+        <label><input type="radio" name="q39" value="c"> C) Temporal</label>
+    </div>
+    <button class="submit-btn" onclick="check(39, 'c', 'The temporal lobe contains the primary auditory cortex.')">Check Answer</button>
+    <div id="f39" class="feedback"></div>
+</div>
+
+<div class="card">
+    <span class="intro-text">Senses: Equilibrium</span>
+    <div class="question">40. Which structure in the inner ear detects rotational (dynamic) acceleration?</div>
+    <div class="options">
+        <label><input type="radio" name="q40" value="a"> A) Cochlea</label>
+        <label><input type="radio" name="q40" value="b"> B) Semicircular Canals</label>
+        <label><input type="radio" name="q40" value="c"> C) Utricle</label>
+    </div>
+    <button class="submit-btn" onclick="check(40, 'b', 'Semicircular canals detect rotation; Utricle and Saccule detect linear acceleration.')">Check Answer</button>
+    <div id="f40" class="feedback"></div>
+</div>
+
+<div class="card">
+    <span class="intro-text">Senses: Taste anatomy</span>
+    <div class="question">41. Which cranial nerve carries taste from the anterior 2/3 of the tongue?</div>
+    <div class="options">
+        <label><input type="radio" name="q41" value="a"> A) CN VII (Facial)</label>
+        <label><input type="radio" name="q41" value="b"> B) CN IX (Glossopharyngeal)</label>
+        <label><input type="radio" name="q41" value="c"> C) CN X (Vagus)</label>
+    </div>
+    <button class="submit-btn" onclick="check(41, 'a', 'Facial nerve handles the front 2/3; Glossopharyngeal handles the back 1/3.')">Check Answer</button>
+    <div id="f41" class="feedback"></div>
+</div>
+
+<div class="card">
+    <span class="intro-text">Endocrine: Blood Volume</span>
+    <div class="question">42. Aldosterone causes the kidneys to reabsorb ________ and excrete ________.</div>
+    <div class="options">
+        <label><input type="radio" name="q42" value="a"> A) Potassium; Sodium</label>
+        <label><input type="radio" name="q42" value="b"> B) Sodium; Potassium</label>
+        <label><input type="radio" name="q42" value="c"> C) Calcium; Magnesium</label>
+    </div>
+    <button class="submit-btn" onclick="check(42, 'b', 'Aldosterone saves salt (sodium), which causes water to follow, raising blood pressure.')">Check Answer</button>
+    <div id="f42" class="feedback"></div>
+</div>
+
+<div class="card">
+    <span class="intro-text">Nervous: PNS Division</span>
+    <div class="question">43. The "Rest and Digest" system is officially called the:</div>
+    <div class="options">
+        <label><input type="radio" name="q43" value="a"> A) Sympathetic NS</label>
+        <label><input type="radio" name="q43" value="b"> B) Parasympathetic NS</label>
+        <label><input type="radio" name="q43" value="c"> C) Somatic NS</label>
+    </div>
+    <button class="submit-btn" onclick="check(43, 'b', 'Parasympathetic is Rest/Digest; Sympathetic is Fight/Flight.')">Check Answer</button>
+    <div id="f43" class="feedback"></div>
+</div>
+
+<div class="card">
+    <span class="intro-text">Senses: Vision Pathology</span>
+    <div class="question">44. A cataract is a clouding of which part of the eye?</div>
+    <div class="options">
+        <label><input type="radio" name="q44" value="a"> A) Cornea</label>
+        <label><input type="radio" name="q44" value="b"> B) Lens</label>
+        <label><input type="radio" name="q44" value="c"> C) Retina</label>
+    </div>
+    <button class="submit-btn" onclick="check(44, 'b', 'Cataracts occur when proteins in the lens clump together.')">Check Answer</button>
+    <div id="f44" class="feedback"></div>
+</div>
+
+<div class="card">
+    <span class="intro-text">Endocrine: Glucose Metabolism</span>
+    <div class="question">45. Glycogenolysis is the process of:</div>
+    <div class="options">
+        <label><input type="radio" name="q45" value="a"> A) Creating new glucose</label>
+        <label><input type="radio" name="q45" value="b"> B) Breaking down glycogen into glucose</label>
+        <label><input type="radio" name="q45" value="c"> C) Storing glucose as fat</label>
+    </div>
+    <button class="submit-btn" onclick="check(45, 'b', 'Glucagon triggers this process to raise blood sugar.')">Check Answer</button>
+    <div id="f45" class="feedback"></div>
+</div>
+
+<div class="card">
+    <span class="intro-text">Nervous: Myelination</span>
+    <div class="question">46. Which cells produce myelin in the Central Nervous System?</div>
+    <div class="options">
+        <label><input type="radio" name="q46" value="a"> A) Schwann Cells</label>
+        <label><input type="radio" name="q46" value="b"> B) Oligodendrocytes</label>
+        <label><input type="radio" name="q46" value="c"> C) Astrocytes</label>
+    </div>
+    <button class="submit-btn" onclick="check(46, 'b', 'Oligodendrocytes = CNS; Schwann Cells = PNS.')">Check Answer</button>
+    <div id="f46" class="feedback"></div>
+</div>
+
+<div class="card">
+    <span class="intro-text">Senses: Hearing loss types</span>
+    <div class="question">47. Hearing loss caused by damage to the hair cells or auditory nerve is called:</div>
+    <div class="options">
+        <label><input type="radio" name="q47" value="a"> A) Conductive hearing loss</label>
+        <label><input type="radio" name="q47" value="b"> B) Sensorineural hearing loss</label>
+        <label><input type="radio" name="q47" value="c"> C) Tinnitus</label>
+    </div>
+    <button class="submit-btn" onclick="check(47, 'b', 'Conductive loss involves the outer/middle ear; Sensorineural involves the inner ear/nerve.')">Check Answer</button>
+    <div id="f47" class="feedback"></div>
+</div>
+
+<div class="card">
+    <span class="intro-text">Endocrine: Reproductive</span>
+    <div class="question">48. Which hormone triggers ovulation in females?</div>
+    <div class="options">
+        <label><input type="radio" name="q48" value="a"> A) Estrogen</label>
+        <label><input type="radio" name="q48" value="b"> B) Luteinizing Hormone (LH)</label>
+        <label><input type="radio" name="q48" value="c"> C) Progesterone</label>
+    </div>
+    <button class="submit-btn" onclick="check(48, 'b', 'The "LH surge" is the direct trigger for the release of an egg.')">Check Answer</button>
+    <div id="f48" class="feedback"></div>
+</div>
+
+<div class="card">
+    <span class="intro-text">Nervous: Anatomy</span>
+    <div class="question">49. The "Arbor Vitae" is found in which brain structure?</div>
+    <div class="options">
+        <label><input type="radio" name="q49" value="a"> A) Cerebrum</label>
+        <label><input type="radio" name="q49" value="b"> B) Cerebellum</label>
+        <label><input type="radio" name="q49" value="c"> C) Thalamus</label>
+    </div>
+    <button class="submit-btn" onclick="check(49, 'b', 'The "tree of life" refers to the white matter pattern in the cerebellum.')">Check Answer</button>
+    <div id="f49" class="feedback"></div>
+</div>
+
+<div class="card">
+    <span class="intro-text">Final Tiebreaker</span>
+    <div class="question">50. Acromegaly is caused by hypersecretion of which hormone in adulthood?</div>
+    <div class="options">
+        <label><input type="radio" name="q50" value="a"> A) Thyroxine</label>
+        <label><input type="radio" name="q50" value="b"> B) Growth Hormone</label>
+        <label><input type="radio" name="q50" value="c"> C) Cortisol</label>
+    </div>
+    <button class="submit-btn" onclick="check(50, 'b', 'Excess Growth Hormone leads to Gigantism in children and Acromegaly in adults.')">Check Answer</button>
+    <div id="f50" class="feedback"></div>
+</div>
+
+<script>
+    let score = 0;
+    let answered = new Set();
+
+    function check(qNum, correctVal, explanation) {
+        if (answered.has(qNum)) return;
+        
+        const feedback = document.getElementById('f' + qNum);
+        const selected = document.querySelector(`input[name="q${qNum}"]:checked`);
+        
+        if (!selected) {
+            alert("Please select an answer first!");
+            return;
+        }
+
+        feedback.style.display = 'block';
+        if (selected.value === correctVal) {
+            feedback.className = 'feedback correct';
+            feedback.innerHTML = '<strong>Correct!</strong> ' + explanation;
+            score++;
+        } else {
+            feedback.className = 'feedback incorrect';
+            feedback.innerHTML = '<strong>Incorrect.</strong> ' + explanation;
+        }
+
+        answered.add(qNum);
+        document.getElementById('current-score').innerText = score;
+        
+        // Disable buttons for that question
+        const btn = document.querySelector(`button[onclick*="check(${qNum}"]`);
+        btn.disabled = true;
+        btn.style.opacity = '0.5';
+    }
+</script>
+
+</body>
+</html>
